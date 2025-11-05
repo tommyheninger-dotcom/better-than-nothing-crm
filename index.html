@@ -36,8 +36,44 @@
       margin-bottom: 12px;
     }
 
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 18px;
+      font-weight: 700;
+      color: #2F80ED;
+    }
+
+    .logo-icon {
+      font-size: 28px;
+    }
+
+    .logo-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.2;
+    }
+
+    .logo-main {
+      font-size: 16px;
+      color: #212529;
+    }
+
+    .logo-sub {
+      font-size: 11px;
+      color: #6C757D;
+      font-weight: 500;
+    }
+
     .header h1 {
-      font-size: 20px;
+      font-size: 18px;
       font-weight: 600;
       color: #212529;
     }
@@ -50,6 +86,7 @@
       cursor: pointer;
       padding: 8px;
       color: #495057;
+      margin-left: -8px;
     }
 
     .menu-overlay {
@@ -252,7 +289,9 @@
       font-size: 24px;
       cursor: pointer;
       padding: 8px;
-      margin: -8px;
+      margin: 0;
+      margin-left: -8px;
+      margin-right: 4px;
       color: #2F80ED;
     }
 
@@ -566,6 +605,386 @@
     .empty-state-text {
       font-size: 16px;
     }
+
+    /* Review Cards */
+    .review-card {
+      background: white;
+      border-radius: 12px;
+      padding: 16px;
+      margin-bottom: 12px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+
+    .review-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 8px;
+    }
+
+    .review-author {
+      font-size: 16px;
+      font-weight: 600;
+      color: #212529;
+      margin-bottom: 4px;
+    }
+
+    .review-stars {
+      color: #FFC107;
+      font-size: 18px;
+      letter-spacing: 2px;
+    }
+
+    .review-date {
+      font-size: 12px;
+      color: #6C757D;
+      margin-bottom: 8px;
+    }
+
+    .review-text {
+      font-size: 14px;
+      color: #495057;
+      line-height: 1.6;
+      margin-bottom: 8px;
+    }
+
+    .review-service {
+      font-size: 12px;
+      color: #6C757D;
+      font-style: italic;
+    }
+
+    /* Modal/Popup */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0,0,0,0.6);
+      z-index: 250;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+      animation: fadeIn 0.2s ease-out;
+    }
+
+    .modal {
+      background: white;
+      border-radius: 12px;
+      max-width: 500px;
+      width: 100%;
+      max-height: 80vh;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+      animation: scaleIn 0.3s ease-out;
+    }
+
+    @keyframes scaleIn {
+      from {
+        transform: scale(0.9);
+        opacity: 0;
+      }
+      to {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    .modal-header {
+      padding: 20px;
+      border-bottom: 1px solid #DEE2E6;
+    }
+
+    .modal-title {
+      font-size: 18px;
+      font-weight: 600;
+      color: #212529;
+    }
+
+    .modal-subtitle {
+      font-size: 14px;
+      color: #6C757D;
+      margin-top: 4px;
+    }
+
+    .modal-body {
+      padding: 16px 20px;
+      overflow-y: auto;
+      flex: 1;
+    }
+
+    .modal-footer {
+      padding: 16px 20px;
+      border-top: 1px solid #DEE2E6;
+      display: flex;
+      gap: 8px;
+    }
+
+    .modal-footer .btn {
+      flex: 1;
+      padding: 12px;
+    }
+
+    /* Lead Selection */
+    .lead-select-item {
+      display: flex;
+      align-items: center;
+      padding: 12px;
+      border: 1px solid #DEE2E6;
+      border-radius: 8px;
+      margin-bottom: 8px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .lead-select-item:hover {
+      background: #F8F9FA;
+    }
+
+    .lead-select-item.selected {
+      background: #E3F2FD;
+      border-color: #2F80ED;
+    }
+
+    .lead-checkbox {
+      width: 20px;
+      height: 20px;
+      margin-right: 12px;
+      cursor: pointer;
+    }
+
+    .lead-select-info {
+      flex: 1;
+    }
+
+    .lead-select-name {
+      font-size: 15px;
+      font-weight: 600;
+      color: #212529;
+      margin-bottom: 2px;
+    }
+
+    .lead-select-details {
+      font-size: 13px;
+      color: #6C757D;
+    }
+
+    /* Confirmation Dialog */
+    .confirmation-dialog {
+      background: white;
+      border-radius: 12px;
+      padding: 24px;
+      max-width: 400px;
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+      animation: scaleIn 0.3s ease-out;
+    }
+
+    .confirmation-icon {
+      font-size: 48px;
+      margin-bottom: 16px;
+    }
+
+    .confirmation-title {
+      font-size: 20px;
+      font-weight: 600;
+      color: #212529;
+      margin-bottom: 8px;
+    }
+
+    .confirmation-message {
+      font-size: 14px;
+      color: #6C757D;
+      margin-bottom: 24px;
+      line-height: 1.6;
+    }
+
+    .confirmation-actions {
+      display: flex;
+      gap: 8px;
+    }
+
+    .confirmation-actions .btn {
+      flex: 1;
+    }
+
+    /* Get Reviews Button */
+    .get-reviews-btn {
+      position: fixed;
+      bottom: 24px;
+      right: 16px;
+      padding: 14px 24px;
+      background: #2F80ED;
+      color: white;
+      border: none;
+      border-radius: 24px;
+      font-size: 15px;
+      font-weight: 600;
+      box-shadow: 0 4px 12px rgba(47, 128, 237, 0.4);
+      cursor: pointer;
+      transition: all 0.2s;
+      z-index: 50;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .get-reviews-btn:active {
+      transform: scale(0.95);
+    }
+
+    /* Quote Styles */
+    .quote-card {
+      background: white;
+      border-radius: 12px;
+      padding: 16px;
+      margin-bottom: 12px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .quote-card:active {
+      transform: scale(0.98);
+    }
+
+    .quote-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 12px;
+    }
+
+    .quote-number {
+      font-size: 14px;
+      color: #6C757D;
+      font-weight: 600;
+    }
+
+    .quote-customer {
+      font-size: 18px;
+      font-weight: 600;
+      color: #212529;
+      margin-bottom: 4px;
+    }
+
+    .quote-service {
+      font-size: 14px;
+      color: #495057;
+      margin-bottom: 8px;
+    }
+
+    .quote-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 12px;
+      padding-top: 12px;
+      border-top: 1px solid #F8F9FA;
+    }
+
+    .quote-amount {
+      font-size: 20px;
+      font-weight: 700;
+      color: #2F80ED;
+    }
+
+    .quote-date {
+      font-size: 12px;
+      color: #6C757D;
+    }
+
+    .status-sent { background: #E3F2FD; color: #1976D2; }
+    .status-accepted { background: #E8F5E9; color: #388E3C; }
+    .status-pending { background: #FFF3E0; color: #F57C00; }
+    .status-declined { background: #FFEBEE; color: #D32F2F; }
+    .status-paid { background: #E8F5E9; color: #2E7D32; }
+
+    .quote-detail-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .quote-stat-card {
+      background: #F8F9FA;
+      padding: 12px;
+      border-radius: 8px;
+    }
+
+    .quote-stat-label {
+      font-size: 12px;
+      color: #6C757D;
+      margin-bottom: 4px;
+    }
+
+    .quote-stat-value {
+      font-size: 18px;
+      font-weight: 600;
+      color: #212529;
+    }
+
+    .line-items {
+      margin-top: 12px;
+    }
+
+    .line-item {
+      display: flex;
+      justify-content: space-between;
+      padding: 12px 0;
+      border-bottom: 1px solid #F8F9FA;
+    }
+
+    .line-item:last-child {
+      border-bottom: none;
+    }
+
+    .line-item-desc {
+      flex: 1;
+    }
+
+    .line-item-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: #212529;
+      margin-bottom: 2px;
+    }
+
+    .line-item-subtitle {
+      font-size: 12px;
+      color: #6C757D;
+    }
+
+    .line-item-price {
+      font-size: 16px;
+      font-weight: 600;
+      color: #212529;
+    }
+
+    .action-buttons {
+      display: flex;
+      gap: 8px;
+      margin-top: 16px;
+    }
+
+    .action-buttons .btn {
+      flex: 1;
+    }
+
+    .btn-outline {
+      background: white;
+      color: #2F80ED;
+      border: 2px solid #2F80ED;
+    }
+
+    .btn-outline:active {
+      background: #E3F2FD;
+    }
   </style>
 </head>
 <body>
@@ -586,6 +1005,10 @@
           <span class="menu-icon">📋</span>
           <span>Leads</span>
         </div>
+        <div class="menu-item" :class="{ active: currentView === 'quotes' || currentView === 'quote-detail' || currentView === 'add-quote' }" @click="navigateTo('quotes')">
+          <span class="menu-icon">💰</span>
+          <span>Quotes</span>
+        </div>
         <div class="menu-item" :class="{ active: currentView === 'reviews' }" @click="navigateTo('reviews')">
           <span class="menu-icon">⭐</span>
           <span>Reviews</span>
@@ -595,19 +1018,81 @@
 
     <!-- Header -->
     <div class="header">
-      <div class="header-top" v-if="currentView === 'list' || currentView === 'reviews'">
+      <!-- Main views with hamburger menu -->
+      <div class="header-top" v-if="currentView === 'list' || currentView === 'reviews' || currentView === 'quotes'">
+        <div class="header-left">
+          <button class="hamburger" @click="menuOpen = !menuOpen">☰</button>
+          <div class="logo">
+            <span class="logo-icon">🌳</span>
+            <div class="logo-text">
+              <span class="logo-main">TreePro</span>
+              <span class="logo-sub">Tree Services</span>
+            </div>
+          </div>
+        </div>
         <h1 v-if="currentView === 'list'">Leads</h1>
+        <h1 v-else-if="currentView === 'quotes'">Quotes</h1>
         <h1 v-else-if="currentView === 'reviews'">Reviews</h1>
-        <button class="hamburger" @click="menuOpen = !menuOpen">☰</button>
       </div>
+
+      <!-- Add Lead view -->
       <div class="header-top" v-else-if="currentView === 'add'">
+        <div class="header-left">
+          <button class="back-button" @click="cancelAddLead">←</button>
+          <div class="logo">
+            <span class="logo-icon">🌳</span>
+            <div class="logo-text">
+              <span class="logo-main">TreePro</span>
+              <span class="logo-sub">Tree Services</span>
+            </div>
+          </div>
+        </div>
         <h1>Add Lead</h1>
       </div>
+
+      <!-- Add Quote view -->
+      <div class="header-top" v-else-if="currentView === 'add-quote'">
+        <div class="header-left">
+          <button class="back-button" @click="cancelAddQuote">←</button>
+          <div class="logo">
+            <span class="logo-icon">🌳</span>
+            <div class="logo-text">
+              <span class="logo-main">TreePro</span>
+              <span class="logo-sub">Tree Services</span>
+            </div>
+          </div>
+        </div>
+        <h1>Create Quote</h1>
+      </div>
+
+      <!-- Detail view with back button -->
       <div class="header-top" v-else-if="currentView === 'detail'">
-        <h1>
+        <div class="header-left">
           <button class="back-button" @click="currentView = 'list'">←</button>
-          Lead Details
-        </h1>
+          <div class="logo">
+            <span class="logo-icon">🌳</span>
+            <div class="logo-text">
+              <span class="logo-main">TreePro</span>
+              <span class="logo-sub">Tree Services</span>
+            </div>
+          </div>
+        </div>
+        <h1>Details</h1>
+      </div>
+
+      <!-- Quote Detail view with back button -->
+      <div class="header-top" v-else-if="currentView === 'quote-detail'">
+        <div class="header-left">
+          <button class="back-button" @click="currentView = 'quotes'">←</button>
+          <div class="logo">
+            <span class="logo-icon">🌳</span>
+            <div class="logo-text">
+              <span class="logo-main">TreePro</span>
+              <span class="logo-sub">Tree Services</span>
+            </div>
+          </div>
+        </div>
+        <h1>Quote Details</h1>
       </div>
 
       <!-- Search & Filter (only on list view) -->
@@ -899,11 +1384,277 @@
       +
     </button>
 
-    <!-- Reviews View (Placeholder) -->
+    <!-- Reviews View -->
     <div v-if="currentView === 'reviews'" class="lead-list">
-      <div class="empty-state">
+      <div v-if="reviews.length === 0" class="empty-state">
         <div class="empty-state-icon">⭐</div>
-        <div class="empty-state-text">Reviews feature coming soon</div>
+        <div class="empty-state-text">No reviews yet</div>
+      </div>
+      <div v-else>
+        <div v-for="review in reviews" :key="review.id" class="review-card">
+          <div class="review-header">
+            <div>
+              <div class="review-author">{{ review.author }}</div>
+              <div class="review-stars">{{ getStars(review.rating) }}</div>
+            </div>
+          </div>
+          <div class="review-date">{{ formatDate(review.date) }}</div>
+          <div class="review-text">{{ review.text }}</div>
+          <div class="review-service">{{ review.serviceType }}</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Get More Reviews Button -->
+    <button v-if="currentView === 'reviews'" class="get-reviews-btn" @click="showReviewRequestModal = true">
+      <span>✉️</span>
+      <span>Get More Reviews</span>
+    </button>
+
+    <!-- Review Request Modal -->
+    <div v-if="showReviewRequestModal" class="modal-overlay" @click="closeReviewModal">
+      <div class="modal" @click.stop>
+        <div class="modal-header">
+          <div class="modal-title">Request Reviews</div>
+          <div class="modal-subtitle">Select customers to send review requests</div>
+        </div>
+        <div class="modal-body">
+          <div v-if="leads.length === 0" class="empty-state">
+            <div class="empty-state-text">No leads to request reviews from</div>
+          </div>
+          <div v-else>
+            <div
+              v-for="lead in leads"
+              :key="lead.id"
+              class="lead-select-item"
+              :class="{ selected: selectedLeadsForReview.includes(lead.id) }"
+              @click="toggleLeadSelection(lead.id)"
+            >
+              <input
+                type="checkbox"
+                class="lead-checkbox"
+                :checked="selectedLeadsForReview.includes(lead.id)"
+                @click.stop="toggleLeadSelection(lead.id)"
+              >
+              <div class="lead-select-info">
+                <div class="lead-select-name">{{ lead.name }}</div>
+                <div class="lead-select-details">{{ lead.serviceType }} • {{ lead.phone }}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" @click="closeReviewModal">Cancel</button>
+          <button
+            class="btn btn-primary"
+            @click="confirmReviewRequest"
+            :disabled="selectedLeadsForReview.length === 0"
+          >
+            Request Reviews ({{ selectedLeadsForReview.length }})
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Quotes List View -->
+    <div v-if="currentView === 'quotes'" class="lead-list">
+      <div v-if="quotes.length === 0" class="empty-state">
+        <div class="empty-state-icon">💰</div>
+        <div class="empty-state-text">No quotes yet</div>
+      </div>
+      <div v-else>
+        <div v-for="quote in quotes" :key="quote.id" class="quote-card" @click="viewQuoteDetail(quote.id)">
+          <div class="quote-header">
+            <div>
+              <div class="quote-number">Quote #{{ quote.number }}</div>
+              <div class="quote-customer">{{ quote.customerName }}</div>
+            </div>
+            <span class="status-badge" :class="'status-' + quote.status.toLowerCase()">
+              {{ quote.status }}
+            </span>
+          </div>
+          <div class="quote-service">{{ quote.serviceType }}</div>
+          <div class="quote-footer">
+            <div class="quote-amount">${{ formatMoney(quote.total) }}</div>
+            <div class="quote-date">{{ formatDate(quote.dateCreated) }}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Create Quote FAB -->
+    <button v-if="currentView === 'quotes'" class="fab" @click="currentView = 'add-quote'">
+      +
+    </button>
+
+    <!-- Quote Detail View -->
+    <div v-if="currentView === 'quote-detail'" class="lead-detail">
+      <div v-if="selectedQuote" class="detail-section">
+        <div class="quote-detail-grid">
+          <div class="quote-stat-card">
+            <div class="quote-stat-label">Quote #</div>
+            <div class="quote-stat-value">{{ selectedQuote.number }}</div>
+          </div>
+          <div class="quote-stat-card">
+            <div class="quote-stat-label">Status</div>
+            <div class="quote-stat-value" :style="{ color: getQuoteStatusColor(selectedQuote.status) }">
+              {{ selectedQuote.status }}
+            </div>
+          </div>
+          <div class="quote-stat-card">
+            <div class="quote-stat-label">Date Created</div>
+            <div class="quote-stat-value" style="font-size: 14px;">{{ formatDate(selectedQuote.dateCreated) }}</div>
+          </div>
+          <div class="quote-stat-card">
+            <div class="quote-stat-label">Valid Until</div>
+            <div class="quote-stat-value" style="font-size: 14px;">{{ formatDate(selectedQuote.validUntil) }}</div>
+          </div>
+        </div>
+      </div>
+
+      <div v-if="selectedQuote" class="detail-section">
+        <h2>Customer Information</h2>
+        <div class="detail-row">
+          <span class="detail-label">Name</span>
+          <span class="detail-value">{{ selectedQuote.customerName }}</span>
+        </div>
+        <div class="detail-row">
+          <span class="detail-label">Phone</span>
+          <span class="detail-value">{{ selectedQuote.phone }}</span>
+        </div>
+        <div class="detail-row">
+          <span class="detail-label">Email</span>
+          <span class="detail-value">{{ selectedQuote.email }}</span>
+        </div>
+        <div class="detail-row">
+          <span class="detail-label">Service</span>
+          <span class="detail-value">{{ selectedQuote.serviceType }}</span>
+        </div>
+      </div>
+
+      <div v-if="selectedQuote" class="detail-section">
+        <h2>Line Items</h2>
+        <div class="line-items">
+          <div v-for="(item, index) in selectedQuote.lineItems" :key="index" class="line-item">
+            <div class="line-item-desc">
+              <div class="line-item-title">{{ item.description }}</div>
+              <div class="line-item-subtitle" v-if="item.quantity">Qty: {{ item.quantity }}</div>
+            </div>
+            <div class="line-item-price">${{ formatMoney(item.price) }}</div>
+          </div>
+        </div>
+        <div class="line-item" style="border-top: 2px solid #212529; margin-top: 8px; padding-top: 16px;">
+          <div class="line-item-title">Total</div>
+          <div class="quote-amount">${{ formatMoney(selectedQuote.total) }}</div>
+        </div>
+      </div>
+
+      <div v-if="selectedQuote" class="detail-section">
+        <h2>Notes</h2>
+        <div class="notes-content">{{ selectedQuote.notes || 'No notes' }}</div>
+      </div>
+
+      <div v-if="selectedQuote" class="detail-section">
+        <h2>Actions</h2>
+        <div class="action-buttons">
+          <button class="btn btn-outline" @click="sendQuoteFollowUp">
+            📧 Send Follow-Up
+          </button>
+          <button class="btn btn-outline" @click="requestPayment" v-if="selectedQuote.status === 'Accepted'">
+            💳 Request Payment
+          </button>
+        </div>
+        <div class="action-buttons" style="margin-top: 8px;">
+          <button class="btn btn-secondary" @click="markQuoteStatus('Accepted')" v-if="selectedQuote.status === 'Sent'">
+            ✅ Mark Accepted
+          </button>
+          <button class="btn btn-secondary" @click="markQuoteStatus('Declined')" v-if="selectedQuote.status === 'Sent'">
+            ❌ Mark Declined
+          </button>
+          <button class="btn btn-primary" @click="markQuoteStatus('Paid')" v-if="selectedQuote.status === 'Accepted'">
+            💰 Mark as Paid
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Add Quote View -->
+    <div v-if="currentView === 'add-quote'" class="lead-detail">
+      <div class="detail-section">
+        <h2>Customer Information</h2>
+        <div class="form-group">
+          <label class="form-label">Select Lead</label>
+          <select class="form-select" v-model="newQuote.leadId" @change="populateFromLead">
+            <option value="">-- Select a lead --</option>
+            <option v-for="lead in leads" :key="lead.id" :value="lead.id">
+              {{ lead.name }} - {{ lead.serviceType }}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Customer Name *</label>
+          <input type="text" class="form-input" v-model="newQuote.customerName" placeholder="John Doe">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Phone *</label>
+          <input type="tel" class="form-input" v-model="newQuote.phone" placeholder="(555) 123-4567">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Email</label>
+          <input type="email" class="form-input" v-model="newQuote.email" placeholder="john@example.com">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Service Type *</label>
+          <input type="text" class="form-input" v-model="newQuote.serviceType" placeholder="Tree Trimming">
+        </div>
+      </div>
+
+      <div class="detail-section">
+        <h2>Quote Details</h2>
+        <div class="form-group">
+          <label class="form-label">Description *</label>
+          <textarea class="form-textarea" v-model="newQuote.description" placeholder="Describe the work to be done..."></textarea>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Amount *</label>
+          <input type="number" class="form-input" v-model="newQuote.amount" placeholder="0.00" step="0.01">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Valid Until</label>
+          <input type="date" class="form-input" v-model="newQuote.validUntil">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Notes</label>
+          <textarea class="form-textarea" v-model="newQuote.notes" placeholder="Additional notes..."></textarea>
+        </div>
+
+        <button class="btn btn-primary" @click="saveQuote">
+          Create Quote
+        </button>
+        <button class="btn btn-secondary" @click="cancelAddQuote" style="margin-top: 8px;">
+          Cancel
+        </button>
+      </div>
+    </div>
+
+    <!-- Confirmation Dialog -->
+    <div v-if="showConfirmation" class="modal-overlay" @click="closeConfirmation">
+      <div class="confirmation-dialog" @click.stop>
+        <div class="confirmation-icon">✅</div>
+        <div class="confirmation-title">Review Requests Sent!</div>
+        <div class="confirmation-message">
+          {{ confirmationMessage }}
+        </div>
+        <div class="confirmation-actions">
+          <button class="btn btn-primary" @click="closeConfirmation">Done</button>
+        </div>
       </div>
     </div>
   </div>
@@ -915,11 +1666,16 @@
     createApp({
       data() {
         return {
-          currentView: 'list', // 'list', 'detail', 'add', 'reviews'
+          currentView: 'list', // 'list', 'detail', 'add', 'reviews', 'quotes', 'quote-detail', 'add-quote'
           searchQuery: '',
           filterStatus: 'all',
           selectedLeadId: null,
+          selectedQuoteId: null,
           menuOpen: false,
+          showReviewRequestModal: false,
+          showConfirmation: false,
+          selectedLeadsForReview: [],
+          confirmationMessage: '',
           statuses: ['New', 'In Progress', 'Quoted', 'Won', 'Lost'],
           editMode: {
             contact: false,
@@ -946,6 +1702,131 @@
             status: 'New',
             notes: ''
           },
+          newQuote: {
+            leadId: '',
+            customerName: '',
+            phone: '',
+            email: '',
+            serviceType: '',
+            description: '',
+            amount: '',
+            validUntil: '',
+            notes: ''
+          },
+          quotes: [
+            {
+              id: 1,
+              number: '1001',
+              customerName: 'Sarah Johnson',
+              phone: '(555) 234-5678',
+              email: 'sarah@johnsonassoc.com',
+              serviceType: 'Tree Trimming',
+              status: 'Sent',
+              dateCreated: '2025-11-01T09:00:00',
+              validUntil: '2025-11-15T23:59:59',
+              lineItems: [
+                { description: 'Tree trimming - 3 large oak trees', quantity: 3, price: 450 },
+                { description: 'Branch removal and disposal', quantity: 1, price: 150 },
+                { description: 'Cleanup and debris removal', quantity: 1, price: 100 }
+              ],
+              total: 700,
+              notes: 'Customer requested work to be done on weekends only'
+            },
+            {
+              id: 2,
+              number: '1002',
+              customerName: 'Michael Chen',
+              phone: '(555) 876-5432',
+              email: 'mchen@email.com',
+              serviceType: 'Stump Removal',
+              status: 'Accepted',
+              dateCreated: '2025-10-28T14:30:00',
+              validUntil: '2025-11-12T23:59:59',
+              lineItems: [
+                { description: 'Stump grinding - Large maple (24" diameter)', quantity: 1, price: 350 },
+                { description: 'Fill and level area', quantity: 1, price: 75 }
+              ],
+              total: 425,
+              notes: 'Payment due upon completion'
+            },
+            {
+              id: 3,
+              number: '1003',
+              customerName: 'Emily Rodriguez',
+              phone: '(555) 345-6789',
+              email: 'emily@rodriguezconst.com',
+              serviceType: 'Tree Removal',
+              status: 'Paid',
+              dateCreated: '2025-10-20T11:00:00',
+              validUntil: '2025-11-05T23:59:59',
+              lineItems: [
+                { description: 'Emergency tree removal - Storm damaged pine', quantity: 1, price: 1200 },
+                { description: 'Crane rental and operation', quantity: 1, price: 500 },
+                { description: 'Disposal fees', quantity: 1, price: 150 }
+              ],
+              total: 1850,
+              notes: 'Job completed 10/25. Payment received via check.'
+            },
+            {
+              id: 4,
+              number: '1004',
+              customerName: 'David Thompson',
+              phone: '(555) 567-8901',
+              email: 'dthompson@email.com',
+              serviceType: 'Tree Health Assessment',
+              status: 'Declined',
+              dateCreated: '2025-10-15T10:15:00',
+              validUntil: '2025-10-30T23:59:59',
+              lineItems: [
+                { description: 'Arborist inspection - 5 trees', quantity: 5, price: 125 },
+                { description: 'Written health report', quantity: 1, price: 75 }
+              ],
+              total: 200,
+              notes: 'Customer decided to go with another arborist'
+            }
+          ],
+          reviews: [
+            {
+              id: 1,
+              author: 'David Thompson',
+              rating: 5,
+              date: '2025-10-30T14:20:00',
+              text: 'Outstanding service! They installed my new water heater quickly and professionally. The technician was punctual, cleaned up after the job, and explained everything clearly. Highly recommend!',
+              serviceType: 'Plumbing'
+            },
+            {
+              id: 2,
+              author: 'Jennifer Martinez',
+              rating: 5,
+              date: '2025-10-28T10:15:00',
+              text: 'Best HVAC company I\'ve worked with! They were able to squeeze me in for an emergency AC repair during a heat wave. Very fair pricing and excellent customer service.',
+              serviceType: 'HVAC'
+            },
+            {
+              id: 3,
+              author: 'Robert Kim',
+              rating: 4,
+              date: '2025-10-25T16:45:00',
+              text: 'Great experience overall. The electrician was knowledgeable and fixed our panel issue efficiently. Only minor complaint was they arrived 15 minutes late, but they called ahead to let us know.',
+              serviceType: 'Electrical'
+            },
+            {
+              id: 4,
+              author: 'Amanda Foster',
+              rating: 5,
+              date: '2025-10-22T09:30:00',
+              text: 'I can\'t say enough good things! They helped us with a complete bathroom renovation and the results are stunning. Professional, on time, and within budget. Will definitely use them again!',
+              serviceType: 'Plumbing'
+            },
+            {
+              id: 5,
+              author: 'Carlos Hernandez',
+              rating: 5,
+              date: '2025-10-20T11:00:00',
+              text: 'Exceptional work! They replaced our old furnace with a new energy-efficient model. The team was courteous, explained all options clearly, and left everything spotless. 10/10 would recommend.',
+              serviceType: 'HVAC'
+            }
+          ],
           leads: [
             {
               id: 1,
@@ -1148,6 +2029,9 @@
         },
         selectedLead() {
           return this.leads.find(lead => lead.id === this.selectedLeadId);
+        },
+        selectedQuote() {
+          return this.quotes.find(quote => quote.id === this.selectedQuoteId);
         }
       },
       methods: {
@@ -1275,6 +2159,151 @@
             minute: '2-digit',
             hour12: true
           });
+        },
+        getStars(rating) {
+          return '⭐'.repeat(rating);
+        },
+        toggleLeadSelection(leadId) {
+          const index = this.selectedLeadsForReview.indexOf(leadId);
+          if (index > -1) {
+            this.selectedLeadsForReview.splice(index, 1);
+          } else {
+            this.selectedLeadsForReview.push(leadId);
+          }
+        },
+        closeReviewModal() {
+          this.showReviewRequestModal = false;
+          this.selectedLeadsForReview = [];
+        },
+        confirmReviewRequest() {
+          const count = this.selectedLeadsForReview.length;
+          const selectedNames = this.selectedLeadsForReview
+            .map(id => this.leads.find(lead => lead.id === id)?.name)
+            .filter(name => name);
+
+          this.confirmationMessage = `Review requests have been sent to ${count} customer${count > 1 ? 's' : ''}: ${selectedNames.join(', ')}`;
+
+          this.showReviewRequestModal = false;
+          this.showConfirmation = true;
+          this.selectedLeadsForReview = [];
+        },
+        closeConfirmation() {
+          this.showConfirmation = false;
+          this.confirmationMessage = '';
+        },
+        // Quote methods
+        viewQuoteDetail(quoteId) {
+          this.selectedQuoteId = quoteId;
+          this.currentView = 'quote-detail';
+        },
+        formatMoney(amount) {
+          return Number(amount).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+        },
+        getQuoteStatusColor(status) {
+          const colors = {
+            'Sent': '#1976D2',
+            'Accepted': '#388E3C',
+            'Pending': '#F57C00',
+            'Declined': '#D32F2F',
+            'Paid': '#2E7D32'
+          };
+          return colors[status] || '#212529';
+        },
+        populateFromLead() {
+          if (this.newQuote.leadId) {
+            const lead = this.leads.find(l => l.id === parseInt(this.newQuote.leadId));
+            if (lead) {
+              this.newQuote.customerName = lead.name;
+              this.newQuote.phone = lead.phone;
+              this.newQuote.email = lead.email;
+              this.newQuote.serviceType = lead.serviceType;
+            }
+          }
+        },
+        saveQuote() {
+          // Validate required fields
+          if (!this.newQuote.customerName.trim() || !this.newQuote.phone.trim() || !this.newQuote.serviceType.trim() || !this.newQuote.description.trim() || !this.newQuote.amount) {
+            this.showToast('Please fill in all required fields');
+            return;
+          }
+
+          const amount = parseFloat(this.newQuote.amount);
+          if (isNaN(amount) || amount <= 0) {
+            this.showToast('Please enter a valid amount');
+            return;
+          }
+
+          // Calculate next quote number
+          const maxNumber = this.quotes.length > 0 ? Math.max(...this.quotes.map(q => parseInt(q.number))) : 1000;
+          const nextNumber = (maxNumber + 1).toString();
+
+          // Set valid until date if not provided (30 days from now)
+          let validUntil = this.newQuote.validUntil;
+          if (!validUntil) {
+            const date = new Date();
+            date.setDate(date.getDate() + 30);
+            validUntil = date.toISOString();
+          } else {
+            validUntil = new Date(validUntil).toISOString();
+          }
+
+          // Create new quote
+          const quote = {
+            id: this.quotes.length + 1,
+            number: nextNumber,
+            customerName: this.newQuote.customerName,
+            phone: this.newQuote.phone,
+            email: this.newQuote.email || 'N/A',
+            serviceType: this.newQuote.serviceType,
+            status: 'Sent',
+            dateCreated: new Date().toISOString(),
+            validUntil: validUntil,
+            lineItems: [
+              { description: this.newQuote.description, quantity: 1, price: amount }
+            ],
+            total: amount,
+            notes: this.newQuote.notes
+          };
+
+          this.quotes.unshift(quote);
+          this.showToast('Quote created successfully!');
+          this.currentView = 'quotes';
+          this.resetNewQuote();
+        },
+        cancelAddQuote() {
+          this.currentView = 'quotes';
+          this.resetNewQuote();
+        },
+        resetNewQuote() {
+          this.newQuote = {
+            leadId: '',
+            customerName: '',
+            phone: '',
+            email: '',
+            serviceType: '',
+            description: '',
+            amount: '',
+            validUntil: '',
+            notes: ''
+          };
+        },
+        markQuoteStatus(status) {
+          if (this.selectedQuote) {
+            this.selectedQuote.status = status;
+            this.showToast(`Quote marked as ${status}`);
+          }
+        },
+        sendQuoteFollowUp() {
+          if (this.selectedQuote) {
+            this.confirmationMessage = `Follow-up email sent to ${this.selectedQuote.customerName} regarding Quote #${this.selectedQuote.number}`;
+            this.showConfirmation = true;
+          }
+        },
+        requestPayment() {
+          if (this.selectedQuote) {
+            this.confirmationMessage = `Payment request sent to ${this.selectedQuote.customerName} for $${this.formatMoney(this.selectedQuote.total)}`;
+            this.showConfirmation = true;
+          }
         }
       }
     }).mount('#app');
