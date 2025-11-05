@@ -1,0 +1,1283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Better Than Nothing CRM</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      background-color: #F8F9FA;
+      color: #212529;
+      padding-bottom: 16px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Header */
+    .header {
+      background: white;
+      padding: 16px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .header-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+
+    .header h1 {
+      font-size: 20px;
+      font-weight: 600;
+      color: #212529;
+    }
+
+    /* Hamburger Menu */
+    .hamburger {
+      background: none;
+      border: none;
+      font-size: 24px;
+      cursor: pointer;
+      padding: 8px;
+      color: #495057;
+    }
+
+    .menu-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0,0,0,0.5);
+      z-index: 150;
+      animation: fadeIn 0.2s ease-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .menu-drawer {
+      position: fixed;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      width: 280px;
+      background: white;
+      z-index: 200;
+      box-shadow: 2px 0 8px rgba(0,0,0,0.2);
+      animation: slideInLeft 0.3s ease-out;
+    }
+
+    @keyframes slideInLeft {
+      from { transform: translateX(-100%); }
+      to { transform: translateX(0); }
+    }
+
+    .menu-header {
+      padding: 24px 16px;
+      background: #2F80ED;
+      color: white;
+    }
+
+    .menu-title {
+      font-size: 20px;
+      font-weight: 600;
+    }
+
+    .menu-items {
+      padding: 16px 0;
+    }
+
+    .menu-item {
+      padding: 16px 24px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 16px;
+      color: #212529;
+      transition: background 0.2s;
+    }
+
+    .menu-item:hover {
+      background: #F8F9FA;
+    }
+
+    .menu-item.active {
+      background: #E3F2FD;
+      color: #2F80ED;
+      font-weight: 600;
+    }
+
+    .menu-icon {
+      font-size: 20px;
+    }
+
+    /* Search Bar */
+    .search-bar {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 8px;
+    }
+
+    .search-input {
+      flex: 1;
+      padding: 12px 16px;
+      border: 1px solid #DEE2E6;
+      border-radius: 8px;
+      font-size: 16px;
+      background: #F8F9FA;
+    }
+
+    .search-input:focus {
+      outline: none;
+      border-color: #2F80ED;
+      background: white;
+    }
+
+    /* Filter Chips */
+    .filter-chips {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      padding: 4px 0;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .filter-chips::-webkit-scrollbar {
+      display: none;
+    }
+
+    .chip {
+      padding: 8px 16px;
+      border-radius: 20px;
+      border: 1px solid #DEE2E6;
+      background: white;
+      font-size: 14px;
+      white-space: nowrap;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .chip.active {
+      background: #2F80ED;
+      color: white;
+      border-color: #2F80ED;
+    }
+
+    /* Lead List */
+    .lead-list {
+      padding: 16px;
+    }
+
+    .lead-card {
+      background: white;
+      border-radius: 12px;
+      padding: 16px;
+      margin-bottom: 12px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+      position: relative;
+    }
+
+    .lead-card:active {
+      transform: scale(0.98);
+    }
+
+    .lead-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 8px;
+    }
+
+    .lead-name {
+      font-size: 18px;
+      font-weight: 600;
+      color: #212529;
+    }
+
+
+    .lead-phone {
+      font-size: 14px;
+      color: #495057;
+      margin-bottom: 8px;
+    }
+
+    .status-badge {
+      padding: 4px 12px;
+      border-radius: 12px;
+      font-size: 12px;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    .status-new { background: #E3F2FD; color: #1976D2; }
+    .status-in-progress { background: #FFF3E0; color: #F57C00; }
+    .status-quoted { background: #F3E5F5; color: #7B1FA2; }
+    .status-won { background: #E8F5E9; color: #388E3C; }
+    .status-lost { background: #FFEBEE; color: #D32F2F; }
+
+    .new-message-badge {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      width: 8px;
+      height: 8px;
+      background: #2F80ED;
+      border-radius: 50%;
+    }
+
+    /* Lead Detail */
+    .lead-detail {
+      padding: 16px;
+    }
+
+    .back-button {
+      background: none;
+      border: none;
+      font-size: 24px;
+      cursor: pointer;
+      padding: 8px;
+      margin: -8px;
+      color: #2F80ED;
+    }
+
+    .detail-section {
+      background: white;
+      border-radius: 12px;
+      padding: 16px;
+      margin-bottom: 16px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+
+    .detail-section h2 {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 12px;
+      color: #212529;
+    }
+
+    .detail-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 8px 0;
+      border-bottom: 1px solid #F8F9FA;
+    }
+
+    .detail-row:last-child {
+      border-bottom: none;
+    }
+
+    .detail-label {
+      font-size: 14px;
+      color: #6C757D;
+    }
+
+    .detail-value {
+      font-size: 14px;
+      color: #212529;
+      font-weight: 500;
+    }
+
+    .detail-value-input {
+      font-size: 14px;
+      color: #212529;
+      font-weight: 500;
+      border: 1px solid #DEE2E6;
+      border-radius: 4px;
+      padding: 4px 8px;
+      background: white;
+    }
+
+    .detail-value-input:focus {
+      outline: none;
+      border-color: #2F80ED;
+    }
+
+    .edit-actions {
+      display: flex;
+      gap: 8px;
+      margin-top: 16px;
+    }
+
+    .btn-small {
+      padding: 8px 16px;
+      border: none;
+      border-radius: 6px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .btn-edit {
+      background: #2F80ED;
+      color: white;
+    }
+
+    .btn-cancel {
+      background: #F8F9FA;
+      color: #495057;
+      border: 1px solid #DEE2E6;
+    }
+
+    .notes-section {
+      margin-top: 12px;
+    }
+
+    .notes-content {
+      font-size: 14px;
+      color: #495057;
+      line-height: 1.6;
+      white-space: pre-wrap;
+    }
+
+    .notes-textarea {
+      width: 100%;
+      padding: 8px 12px;
+      border: 1px solid #DEE2E6;
+      border-radius: 6px;
+      font-size: 14px;
+      font-family: inherit;
+      line-height: 1.6;
+      resize: vertical;
+      min-height: 80px;
+    }
+
+    .notes-textarea:focus {
+      outline: none;
+      border-color: #2F80ED;
+    }
+
+    /* Status Selector */
+    .status-selector {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .status-button {
+      flex: 1;
+      min-width: calc(50% - 4px);
+      padding: 12px;
+      border: 2px solid #DEE2E6;
+      border-radius: 8px;
+      background: white;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .status-button.selected {
+      border-color: #2F80ED;
+      background: #E3F2FD;
+      color: #2F80ED;
+    }
+
+    /* Chat Section */
+    .chat-container {
+      max-height: 400px;
+      overflow-y: auto;
+      padding: 16px;
+      background: #F8F9FA;
+      border-radius: 12px;
+    }
+
+    .chat-message {
+      margin-bottom: 16px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .chat-message.ai {
+      align-items: flex-start;
+    }
+
+    .chat-message.lead {
+      align-items: flex-end;
+    }
+
+    .message-bubble {
+      max-width: 80%;
+      padding: 12px 16px;
+      border-radius: 16px;
+      font-size: 14px;
+      line-height: 1.4;
+    }
+
+    .chat-message.ai .message-bubble {
+      background: white;
+      color: #212529;
+      border-bottom-left-radius: 4px;
+    }
+
+    .chat-message.lead .message-bubble {
+      background: #2F80ED;
+      color: white;
+      border-bottom-right-radius: 4px;
+    }
+
+    .message-time {
+      font-size: 12px;
+      color: #6C757D;
+      margin-top: 4px;
+    }
+
+    /* Add Lead Form */
+    .form-group {
+      margin-bottom: 16px;
+    }
+
+    .form-label {
+      display: block;
+      font-size: 14px;
+      font-weight: 600;
+      color: #495057;
+      margin-bottom: 8px;
+    }
+
+    .form-input,
+    .form-textarea,
+    .form-select {
+      width: 100%;
+      padding: 12px 16px;
+      border: 1px solid #DEE2E6;
+      border-radius: 8px;
+      font-size: 16px;
+      font-family: inherit;
+      background: white;
+    }
+
+    .form-input:focus,
+    .form-textarea:focus,
+    .form-select:focus {
+      outline: none;
+      border-color: #2F80ED;
+    }
+
+    .form-textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+
+    /* Buttons */
+    .btn {
+      width: 100%;
+      padding: 16px;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .btn-primary {
+      background: #2F80ED;
+      color: white;
+    }
+
+    .btn-primary:active {
+      background: #2566C9;
+    }
+
+    .btn-secondary {
+      background: #F8F9FA;
+      color: #495057;
+      border: 1px solid #DEE2E6;
+    }
+
+    .fab {
+      position: fixed;
+      bottom: 24px;
+      right: 16px;
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: #2F80ED;
+      color: white;
+      border: none;
+      font-size: 24px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      cursor: pointer;
+      transition: transform 0.2s;
+      z-index: 50;
+    }
+
+    .fab:active {
+      transform: scale(0.95);
+    }
+
+
+    /* Toast */
+    .toast {
+      position: fixed;
+      top: 80px;
+      left: 16px;
+      right: 16px;
+      background: #212529;
+      color: white;
+      padding: 16px;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      z-index: 200;
+      animation: slideIn 0.3s ease-out;
+    }
+
+    @keyframes slideIn {
+      from {
+        transform: translateY(-100%);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    /* Empty State */
+    .empty-state {
+      text-align: center;
+      padding: 48px 16px;
+      color: #6C757D;
+    }
+
+    .empty-state-icon {
+      font-size: 48px;
+      margin-bottom: 16px;
+    }
+
+    .empty-state-text {
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <!-- Toast Notification -->
+    <div v-if="toast.show" class="toast">
+      {{ toast.message }}
+    </div>
+
+    <!-- Hamburger Menu -->
+    <div v-if="menuOpen" class="menu-overlay" @click="menuOpen = false"></div>
+    <div v-if="menuOpen" class="menu-drawer">
+      <div class="menu-header">
+        <div class="menu-title">Menu</div>
+      </div>
+      <div class="menu-items">
+        <div class="menu-item" :class="{ active: currentView === 'list' }" @click="navigateTo('list')">
+          <span class="menu-icon">📋</span>
+          <span>Leads</span>
+        </div>
+        <div class="menu-item" :class="{ active: currentView === 'reviews' }" @click="navigateTo('reviews')">
+          <span class="menu-icon">⭐</span>
+          <span>Reviews</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Header -->
+    <div class="header">
+      <div class="header-top" v-if="currentView === 'list' || currentView === 'reviews'">
+        <h1 v-if="currentView === 'list'">Leads</h1>
+        <h1 v-else-if="currentView === 'reviews'">Reviews</h1>
+        <button class="hamburger" @click="menuOpen = !menuOpen">☰</button>
+      </div>
+      <div class="header-top" v-else-if="currentView === 'add'">
+        <h1>Add Lead</h1>
+      </div>
+      <div class="header-top" v-else-if="currentView === 'detail'">
+        <h1>
+          <button class="back-button" @click="currentView = 'list'">←</button>
+          Lead Details
+        </h1>
+      </div>
+
+      <!-- Search & Filter (only on list view) -->
+      <div v-if="currentView === 'list'">
+        <div class="search-bar">
+          <input
+            type="text"
+            class="search-input"
+            placeholder="Search leads..."
+            v-model="searchQuery"
+          >
+        </div>
+        <div class="filter-chips">
+          <div
+            class="chip"
+            :class="{ active: filterStatus === 'all' }"
+            @click="filterStatus = 'all'"
+          >
+            All
+          </div>
+          <div
+            class="chip"
+            :class="{ active: filterStatus === 'New' }"
+            @click="filterStatus = 'New'"
+          >
+            New
+          </div>
+          <div
+            class="chip"
+            :class="{ active: filterStatus === 'In Progress' }"
+            @click="filterStatus = 'In Progress'"
+          >
+            In Progress
+          </div>
+          <div
+            class="chip"
+            :class="{ active: filterStatus === 'Quoted' }"
+            @click="filterStatus = 'Quoted'"
+          >
+            Quoted
+          </div>
+          <div
+            class="chip"
+            :class="{ active: filterStatus === 'Won' }"
+            @click="filterStatus = 'Won'"
+          >
+            Won
+          </div>
+          <div
+            class="chip"
+            :class="{ active: filterStatus === 'Lost' }"
+            @click="filterStatus = 'Lost'"
+          >
+            Lost
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Lead List View -->
+    <div v-if="currentView === 'list'" class="lead-list">
+      <div v-if="filteredLeads.length === 0" class="empty-state">
+        <div class="empty-state-icon">📋</div>
+        <div class="empty-state-text">No leads found</div>
+      </div>
+      <div
+        v-for="lead in filteredLeads"
+        :key="lead.id"
+        class="lead-card"
+        @click="viewLeadDetail(lead.id)"
+      >
+        <div v-if="lead.hasNewMessages" class="new-message-badge"></div>
+        <div class="lead-card-header">
+          <div>
+            <div class="lead-name">{{ lead.name }}</div>
+          </div>
+          <span class="status-badge" :class="getStatusClass(lead.status)">
+            {{ lead.status }}
+          </span>
+        </div>
+        <div class="lead-phone">📞 {{ lead.phone }}</div>
+      </div>
+    </div>
+
+    <!-- Lead Detail View -->
+    <div v-if="currentView === 'detail'" class="lead-detail">
+      <div v-if="selectedLead" class="detail-section">
+        <h2>Contact Information</h2>
+
+        <!-- View Mode -->
+        <div v-if="!editMode.contact">
+          <div class="detail-row">
+            <span class="detail-label">Name</span>
+            <span class="detail-value">{{ selectedLead.name }}</span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-label">Phone</span>
+            <span class="detail-value">{{ selectedLead.phone }}</span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-label">Email</span>
+            <span class="detail-value">{{ selectedLead.email }}</span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-label">Source</span>
+            <span class="detail-value">{{ selectedLead.source || 'N/A' }}</span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-label">Service Type</span>
+            <span class="detail-value">{{ selectedLead.serviceType }}</span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-label">Date Added</span>
+            <span class="detail-value">{{ formatDate(selectedLead.dateAdded) }}</span>
+          </div>
+          <div class="edit-actions">
+            <button class="btn-small btn-edit" @click="startEditContact">Edit</button>
+          </div>
+        </div>
+
+        <!-- Edit Mode -->
+        <div v-else>
+          <div class="detail-row">
+            <span class="detail-label">Name</span>
+            <input type="text" class="detail-value-input" v-model="editData.name">
+          </div>
+          <div class="detail-row">
+            <span class="detail-label">Phone</span>
+            <input type="tel" class="detail-value-input" v-model="editData.phone">
+          </div>
+          <div class="detail-row">
+            <span class="detail-label">Email</span>
+            <input type="email" class="detail-value-input" v-model="editData.email">
+          </div>
+          <div class="detail-row">
+            <span class="detail-label">Source</span>
+            <input type="text" class="detail-value-input" v-model="editData.source" placeholder="e.g. Google, Referral">
+          </div>
+          <div class="detail-row">
+            <span class="detail-label">Service Type</span>
+            <input type="text" class="detail-value-input" v-model="editData.serviceType">
+          </div>
+          <div class="edit-actions">
+            <button class="btn-small btn-edit" @click="saveContactEdits">Save</button>
+            <button class="btn-small btn-cancel" @click="cancelEditContact">Cancel</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Notes Section -->
+      <div v-if="selectedLead" class="detail-section">
+        <h2>Notes</h2>
+
+        <!-- View Mode -->
+        <div v-if="!editMode.notes">
+          <div class="notes-content">{{ selectedLead.notes || 'No notes yet' }}</div>
+          <div class="edit-actions">
+            <button class="btn-small btn-edit" @click="startEditNotes">Edit</button>
+          </div>
+        </div>
+
+        <!-- Edit Mode -->
+        <div v-else>
+          <textarea class="notes-textarea" v-model="editData.notes" placeholder="Add notes..."></textarea>
+          <div class="edit-actions">
+            <button class="btn-small btn-edit" @click="saveNotesEdits">Save</button>
+            <button class="btn-small btn-cancel" @click="cancelEditNotes">Cancel</button>
+          </div>
+        </div>
+      </div>
+
+      <div v-if="selectedLead" class="detail-section">
+        <h2>Status</h2>
+        <div class="status-selector">
+          <button
+            v-for="status in statuses"
+            :key="status"
+            class="status-button"
+            :class="{ selected: selectedLead.status === status }"
+            @click="updateLeadStatus(status)"
+          >
+            {{ status }}
+          </button>
+        </div>
+      </div>
+
+      <div v-if="selectedLead && selectedLead.conversation" class="detail-section">
+        <h2>AI Conversation</h2>
+        <div class="chat-container">
+          <div
+            v-for="(message, index) in selectedLead.conversation"
+            :key="index"
+            class="chat-message"
+            :class="message.sender"
+          >
+            <div class="message-bubble">
+              {{ message.text }}
+            </div>
+            <div class="message-time">
+              {{ formatTime(message.timestamp) }}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Add Lead View -->
+    <div v-if="currentView === 'add'" class="lead-detail">
+      <div class="detail-section">
+        <div class="form-group">
+          <label class="form-label">Name *</label>
+          <input
+            type="text"
+            class="form-input"
+            placeholder="John Doe"
+            v-model="newLead.name"
+          >
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Phone *</label>
+          <input
+            type="tel"
+            class="form-input"
+            placeholder="(555) 123-4567"
+            v-model="newLead.phone"
+          >
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Email</label>
+          <input
+            type="email"
+            class="form-input"
+            placeholder="john@example.com"
+            v-model="newLead.email"
+          >
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Source</label>
+          <input
+            type="text"
+            class="form-input"
+            placeholder="Google, Referral, etc."
+            v-model="newLead.source"
+          >
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Service Type</label>
+          <input
+            type="text"
+            class="form-input"
+            placeholder="Plumbing, HVAC, etc."
+            v-model="newLead.serviceType"
+          >
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Status</label>
+          <select class="form-select" v-model="newLead.status">
+            <option v-for="status in statuses" :key="status" :value="status">
+              {{ status }}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Notes</label>
+          <textarea
+            class="form-textarea"
+            placeholder="Additional information..."
+            v-model="newLead.notes"
+          ></textarea>
+        </div>
+
+        <button class="btn btn-primary" @click="saveLead">
+          Add Lead
+        </button>
+        <button class="btn btn-secondary" @click="cancelAddLead" style="margin-top: 8px;">
+          Cancel
+        </button>
+      </div>
+    </div>
+
+    <!-- FAB Button -->
+    <button v-if="currentView === 'list'" class="fab" @click="currentView = 'add'">
+      +
+    </button>
+
+    <!-- Reviews View (Placeholder) -->
+    <div v-if="currentView === 'reviews'" class="lead-list">
+      <div class="empty-state">
+        <div class="empty-state-icon">⭐</div>
+        <div class="empty-state-text">Reviews feature coming soon</div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script>
+    const { createApp } = Vue;
+
+    createApp({
+      data() {
+        return {
+          currentView: 'list', // 'list', 'detail', 'add', 'reviews'
+          searchQuery: '',
+          filterStatus: 'all',
+          selectedLeadId: null,
+          menuOpen: false,
+          statuses: ['New', 'In Progress', 'Quoted', 'Won', 'Lost'],
+          editMode: {
+            contact: false,
+            notes: false
+          },
+          editData: {
+            name: '',
+            phone: '',
+            email: '',
+            source: '',
+            serviceType: '',
+            notes: ''
+          },
+          toast: {
+            show: false,
+            message: ''
+          },
+          newLead: {
+            name: '',
+            phone: '',
+            email: '',
+            source: '',
+            serviceType: '',
+            status: 'New',
+            notes: ''
+          },
+          leads: [
+            {
+              id: 1,
+              name: 'Sarah Johnson',
+              phone: '(555) 234-5678',
+              email: 'sarah@johnsonassoc.com',
+              status: 'New',
+              source: 'Google Ads',
+              serviceType: 'Plumbing',
+              dateAdded: '2025-11-04T10:30:00',
+              hasNewMessages: true,
+              notes: 'Interested in full bathroom renovation. Budget: $15,000',
+              conversation: [
+                {
+                  sender: 'ai',
+                  text: 'Hi Sarah! Thanks for reaching out. I understand you need plumbing services. Can you tell me more about what you need?',
+                  timestamp: '2025-11-04T10:30:00'
+                },
+                {
+                  sender: 'lead',
+                  text: 'Yes, we need a complete bathroom renovation for our office building.',
+                  timestamp: '2025-11-04T10:35:00'
+                },
+                {
+                  sender: 'ai',
+                  text: 'Great! I\'ve noted that down. What\'s your timeline for this project?',
+                  timestamp: '2025-11-04T10:36:00'
+                },
+                {
+                  sender: 'lead',
+                  text: 'Looking to start within the next 3-4 weeks if possible.',
+                  timestamp: '2025-11-04T10:40:00'
+                }
+              ]
+            },
+            {
+              id: 2,
+              name: 'Michael Chen',
+              phone: '(555) 876-5432',
+              email: 'mchen@email.com',
+              status: 'In Progress',
+              source: 'Referral',
+              serviceType: 'HVAC',
+              dateAdded: '2025-11-03T14:20:00',
+              hasNewMessages: false,
+              notes: 'AC unit replacement needed urgently',
+              conversation: [
+                {
+                  sender: 'ai',
+                  text: 'Hello Michael! I see you need HVAC service. What can we help you with?',
+                  timestamp: '2025-11-03T14:20:00'
+                },
+                {
+                  sender: 'lead',
+                  text: 'My AC stopped working yesterday. It\'s really hot!',
+                  timestamp: '2025-11-03T14:22:00'
+                },
+                {
+                  sender: 'ai',
+                  text: 'I understand the urgency. Let me connect you with our team for a same-day assessment.',
+                  timestamp: '2025-11-03T14:23:00'
+                }
+              ]
+            },
+            {
+              id: 3,
+              name: 'Emily Rodriguez',
+              phone: '(555) 345-6789',
+              email: 'emily@rodriguezconst.com',
+              status: 'Quoted',
+              source: 'Website',
+              serviceType: 'Electrical',
+              dateAdded: '2025-11-02T09:15:00',
+              hasNewMessages: true,
+              notes: 'Commercial electrical upgrade project',
+              conversation: [
+                {
+                  sender: 'ai',
+                  text: 'Hi Emily! How can we assist with your electrical needs?',
+                  timestamp: '2025-11-02T09:15:00'
+                },
+                {
+                  sender: 'lead',
+                  text: 'We have a commercial building that needs a complete electrical panel upgrade.',
+                  timestamp: '2025-11-02T09:20:00'
+                }
+              ]
+            },
+            {
+              id: 4,
+              name: 'David Thompson',
+              phone: '(555) 567-8901',
+              email: 'dthompson@email.com',
+              status: 'Won',
+              source: 'Facebook',
+              serviceType: 'Plumbing',
+              dateAdded: '2025-10-28T11:45:00',
+              hasNewMessages: false,
+              notes: 'Water heater installation - Scheduled for next Tuesday',
+              conversation: [
+                {
+                  sender: 'ai',
+                  text: 'Hi David! What plumbing service do you need?',
+                  timestamp: '2025-10-28T11:45:00'
+                },
+                {
+                  sender: 'lead',
+                  text: 'Need a new water heater installed.',
+                  timestamp: '2025-10-28T11:50:00'
+                },
+                {
+                  sender: 'ai',
+                  text: 'Perfect! We can schedule that for you. Does next Tuesday work?',
+                  timestamp: '2025-10-28T11:52:00'
+                },
+                {
+                  sender: 'lead',
+                  text: 'Yes, Tuesday morning would be great!',
+                  timestamp: '2025-10-28T12:00:00'
+                }
+              ]
+            },
+            {
+              id: 5,
+              name: 'Lisa Martinez',
+              phone: '(555) 789-0123',
+              email: 'lisa@martinezre.com',
+              status: 'Lost',
+              source: 'Yelp',
+              serviceType: 'HVAC',
+              dateAdded: '2025-10-25T16:30:00',
+              hasNewMessages: false,
+              notes: 'Went with another contractor - price too high',
+              conversation: [
+                {
+                  sender: 'ai',
+                  text: 'Hi Lisa! I understand you need HVAC services for multiple properties?',
+                  timestamp: '2025-10-25T16:30:00'
+                },
+                {
+                  sender: 'lead',
+                  text: 'Yes, we have 5 rental properties that need maintenance.',
+                  timestamp: '2025-10-25T16:35:00'
+                },
+                {
+                  sender: 'ai',
+                  text: 'Great! I\'ll have our team prepare a quote for you.',
+                  timestamp: '2025-10-25T16:40:00'
+                }
+              ]
+            },
+            {
+              id: 6,
+              name: 'James Wilson',
+              phone: '(555) 432-1098',
+              email: 'jwilson@email.com',
+              status: 'New',
+              source: 'Google Search',
+              serviceType: 'Electrical',
+              dateAdded: '2025-11-05T08:00:00',
+              hasNewMessages: true,
+              notes: 'Urgent: Power outage in home office',
+              conversation: [
+                {
+                  sender: 'ai',
+                  text: 'Good morning James! What electrical issue can we help you with?',
+                  timestamp: '2025-11-05T08:00:00'
+                },
+                {
+                  sender: 'lead',
+                  text: 'My home office has no power. I work from home and need this fixed ASAP!',
+                  timestamp: '2025-11-05T08:05:00'
+                }
+              ]
+            }
+          ]
+        };
+      },
+      computed: {
+        filteredLeads() {
+          let filtered = this.leads;
+
+          // Filter by status
+          if (this.filterStatus !== 'all') {
+            filtered = filtered.filter(lead => lead.status === this.filterStatus);
+          }
+
+          // Search filter
+          if (this.searchQuery.trim()) {
+            const query = this.searchQuery.toLowerCase();
+            filtered = filtered.filter(lead =>
+              lead.name.toLowerCase().includes(query) ||
+              lead.phone.includes(query) ||
+              lead.email.toLowerCase().includes(query) ||
+              (lead.source && lead.source.toLowerCase().includes(query))
+            );
+          }
+
+          return filtered;
+        },
+        selectedLead() {
+          return this.leads.find(lead => lead.id === this.selectedLeadId);
+        }
+      },
+      methods: {
+        navigateTo(view) {
+          this.currentView = view;
+          this.menuOpen = false;
+        },
+        getStatusClass(status) {
+          return 'status-' + status.toLowerCase().replace(' ', '-');
+        },
+        viewLeadDetail(leadId) {
+          this.selectedLeadId = leadId;
+          this.currentView = 'detail';
+          this.editMode.contact = false;
+          this.editMode.notes = false;
+          // Mark messages as read
+          const lead = this.leads.find(l => l.id === leadId);
+          if (lead) {
+            lead.hasNewMessages = false;
+          }
+        },
+        updateLeadStatus(newStatus) {
+          if (this.selectedLead) {
+            this.selectedLead.status = newStatus;
+            this.showToast(`Status updated to ${newStatus}`);
+          }
+        },
+        startEditContact() {
+          this.editData.name = this.selectedLead.name;
+          this.editData.phone = this.selectedLead.phone;
+          this.editData.email = this.selectedLead.email;
+          this.editData.source = this.selectedLead.source || '';
+          this.editData.serviceType = this.selectedLead.serviceType;
+          this.editMode.contact = true;
+        },
+        saveContactEdits() {
+          if (!this.editData.name.trim() || !this.editData.phone.trim()) {
+            this.showToast('Name and phone are required');
+            return;
+          }
+          this.selectedLead.name = this.editData.name;
+          this.selectedLead.phone = this.editData.phone;
+          this.selectedLead.email = this.editData.email;
+          this.selectedLead.source = this.editData.source;
+          this.selectedLead.serviceType = this.editData.serviceType;
+          this.editMode.contact = false;
+          this.showToast('Contact information updated');
+        },
+        cancelEditContact() {
+          this.editMode.contact = false;
+        },
+        startEditNotes() {
+          this.editData.notes = this.selectedLead.notes || '';
+          this.editMode.notes = true;
+        },
+        saveNotesEdits() {
+          this.selectedLead.notes = this.editData.notes;
+          this.editMode.notes = false;
+          this.showToast('Notes updated');
+        },
+        cancelEditNotes() {
+          this.editMode.notes = false;
+        },
+        saveLead() {
+          // Validate required fields
+          if (!this.newLead.name.trim() || !this.newLead.phone.trim()) {
+            this.showToast('Please fill in required fields');
+            return;
+          }
+
+          // Create new lead
+          const lead = {
+            id: this.leads.length + 1,
+            name: this.newLead.name,
+            phone: this.newLead.phone,
+            email: this.newLead.email || 'N/A',
+            source: this.newLead.source,
+            status: this.newLead.status,
+            serviceType: this.newLead.serviceType || 'General',
+            dateAdded: new Date().toISOString(),
+            hasNewMessages: false,
+            notes: this.newLead.notes,
+            conversation: []
+          };
+
+          this.leads.unshift(lead);
+          this.showToast('Lead added successfully!');
+          this.currentView = 'list';
+          this.resetNewLead();
+        },
+        cancelAddLead() {
+          this.currentView = 'list';
+          this.resetNewLead();
+        },
+        resetNewLead() {
+          this.newLead = {
+            name: '',
+            phone: '',
+            email: '',
+            source: '',
+            serviceType: '',
+            status: 'New',
+            notes: ''
+          };
+        },
+        showToast(message) {
+          this.toast.message = message;
+          this.toast.show = true;
+          setTimeout(() => {
+            this.toast.show = false;
+          }, 3000);
+        },
+        formatDate(dateString) {
+          const date = new Date(dateString);
+          return date.toLocaleDateString('en-US', {
+            month: 'short',
+            day: 'numeric',
+            year: 'numeric'
+          });
+        },
+        formatTime(dateString) {
+          const date = new Date(dateString);
+          return date.toLocaleTimeString('en-US', {
+            hour: 'numeric',
+            minute: '2-digit',
+            hour12: true
+          });
+        }
+      }
+    }).mount('#app');
+  </script>
+</body>
+</html>
