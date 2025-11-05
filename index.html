@@ -985,6 +985,256 @@
     .btn-outline:active {
       background: #E3F2FD;
     }
+
+    /* Get More Leads Section */
+    .marketing-channels {
+      padding: 16px;
+    }
+
+    /* AI Agents Grid Layout */
+    .ai-agents-grid {
+      padding: 16px;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+
+    .channel-card {
+      background: white;
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 16px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .agent-card {
+      background: white;
+      border-radius: 12px;
+      padding: 16px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .channel-card:active,
+    .agent-card:active {
+      transform: scale(0.98);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    }
+
+    .channel-icon {
+      font-size: 48px;
+      margin-bottom: 12px;
+    }
+
+    .channel-title {
+      font-size: 20px;
+      font-weight: 600;
+      color: #212529;
+      margin-bottom: 8px;
+    }
+
+    .channel-description {
+      font-size: 14px;
+      color: #6C757D;
+      line-height: 1.6;
+      margin-bottom: 16px;
+    }
+
+    .channel-stats {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 16px;
+      padding: 12px;
+      background: #F8F9FA;
+      border-radius: 8px;
+    }
+
+    .channel-stat {
+      flex: 1;
+      text-align: center;
+    }
+
+    .channel-stat-label {
+      font-size: 11px;
+      color: #6C757D;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+
+    .channel-stat-value {
+      font-size: 16px;
+      font-weight: 700;
+      color: #2F80ED;
+    }
+
+    .channel-cta {
+      width: 100%;
+      padding: 14px;
+      background: #2F80ED;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .channel-cta:active {
+      background: #2566C9;
+    }
+
+    .campaign-setup {
+      background: white;
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 16px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+
+    .campaign-setup h3 {
+      font-size: 16px;
+      font-weight: 600;
+      color: #212529;
+      margin-bottom: 12px;
+    }
+
+    .budget-slider {
+      width: 100%;
+      margin: 16px 0;
+    }
+
+    .budget-display {
+      font-size: 28px;
+      font-weight: 700;
+      color: #2F80ED;
+      text-align: center;
+      margin: 16px 0;
+    }
+
+    .targeting-options {
+      margin: 16px 0;
+    }
+
+    .checkbox-group {
+      margin-bottom: 12px;
+    }
+
+    .checkbox-label {
+      display: flex;
+      align-items: center;
+      padding: 10px;
+      cursor: pointer;
+    }
+
+    .checkbox-label input[type="checkbox"] {
+      margin-right: 10px;
+      width: 18px;
+      height: 18px;
+      cursor: pointer;
+    }
+
+    /* Reports Section */
+    .reports-container {
+      padding: 16px;
+      padding-bottom: 80px;
+    }
+
+    .report-section {
+      margin-bottom: 24px;
+    }
+
+    .report-section-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 12px;
+    }
+
+    .report-section-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: #1A1A1A;
+      margin: 0 0 12px 0;
+      padding-left: 4px;
+    }
+
+    .report-section-header .report-section-title {
+      margin-bottom: 0;
+    }
+
+    .date-range-selector {
+      padding: 6px 12px;
+      border-radius: 6px;
+      border: 1px solid #DDD;
+      background: white;
+      font-size: 13px;
+      font-weight: 500;
+      color: #333;
+      cursor: pointer;
+      outline: none;
+    }
+
+    .date-range-selector:focus {
+      border-color: #2F80ED;
+    }
+
+    .report-cards {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+
+    .report-cards-full {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+
+    .report-card {
+      background: white;
+      border-radius: 12px;
+      padding: 20px 16px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .report-card-full {
+      background: white;
+      border-radius: 12px;
+      padding: 20px 16px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .report-card-icon {
+      font-size: 32px;
+      margin-bottom: 8px;
+    }
+
+    .report-card-title {
+      font-size: 12px;
+      color: #666;
+      margin-bottom: 6px;
+      font-weight: 500;
+    }
+
+    .report-card-value {
+      font-size: 24px;
+      font-weight: 700;
+      color: #1A1A1A;
+    }
   </style>
 </head>
 <body>
@@ -1005,13 +1255,25 @@
           <span class="menu-icon">📋</span>
           <span>Leads</span>
         </div>
+        <div class="menu-item" :class="{ active: currentView === 'reviews' }" @click="navigateTo('reviews')">
+          <span class="menu-icon">⭐</span>
+          <span>Reviews</span>
+        </div>
+        <div class="menu-item" :class="{ active: currentView === 'reports' }" @click="navigateTo('reports')">
+          <span class="menu-icon">📊</span>
+          <span>Reports</span>
+        </div>
         <div class="menu-item" :class="{ active: currentView === 'quotes' || currentView === 'quote-detail' || currentView === 'add-quote' }" @click="navigateTo('quotes')">
           <span class="menu-icon">💰</span>
           <span>Quotes</span>
         </div>
-        <div class="menu-item" :class="{ active: currentView === 'reviews' }" @click="navigateTo('reviews')">
-          <span class="menu-icon">⭐</span>
-          <span>Reviews</span>
+        <div class="menu-item" :class="{ active: currentView === 'get-leads' }" @click="navigateTo('get-leads')">
+          <span class="menu-icon">📈</span>
+          <span>Get More Leads</span>
+        </div>
+        <div class="menu-item" :class="{ active: currentView === 'ai-agents' }" @click="navigateTo('ai-agents')">
+          <span class="menu-icon">🤖</span>
+          <span>AI Agents</span>
         </div>
       </div>
     </div>
@@ -1019,7 +1281,7 @@
     <!-- Header -->
     <div class="header">
       <!-- Main views with hamburger menu -->
-      <div class="header-top" v-if="currentView === 'list' || currentView === 'reviews' || currentView === 'quotes'">
+      <div class="header-top" v-if="currentView === 'list' || currentView === 'reviews' || currentView === 'quotes' || currentView === 'reports' || currentView === 'get-leads' || currentView === 'ai-agents'">
         <div class="header-left">
           <button class="hamburger" @click="menuOpen = !menuOpen">☰</button>
           <div class="logo">
@@ -1033,6 +1295,9 @@
         <h1 v-if="currentView === 'list'">Leads</h1>
         <h1 v-else-if="currentView === 'quotes'">Quotes</h1>
         <h1 v-else-if="currentView === 'reviews'">Reviews</h1>
+        <h1 v-else-if="currentView === 'reports'">Reports</h1>
+        <h1 v-else-if="currentView === 'get-leads'">Get More Leads</h1>
+        <h1 v-else-if="currentView === 'ai-agents'">AI Agents</h1>
       </div>
 
       <!-- Add Lead view -->
@@ -1644,6 +1909,417 @@
       </div>
     </div>
 
+    <!-- Get More Leads View -->
+    <div v-if="currentView === 'get-leads'" class="marketing-channels">
+      <!-- Facebook Ads Card -->
+      <div class="channel-card">
+        <div class="channel-icon">📘</div>
+        <div class="channel-title">Facebook Ads</div>
+        <div class="channel-description">
+          Reach local homeowners on Facebook and Instagram with targeted ads. Perfect for promoting seasonal services and building brand awareness.
+        </div>
+        <div class="channel-stats">
+          <div class="channel-stat">
+            <div class="channel-stat-label">Avg. Cost/Lead</div>
+            <div class="channel-stat-value">$12</div>
+          </div>
+          <div class="channel-stat">
+            <div class="channel-stat-label">Est. Reach</div>
+            <div class="channel-stat-value">15K+</div>
+          </div>
+        </div>
+        <button class="channel-cta" @click="startCampaign('facebook')">
+          Set Up Facebook Campaign
+        </button>
+      </div>
+
+      <!-- Google Ads Card -->
+      <div class="channel-card">
+        <div class="channel-icon">🔍</div>
+        <div class="channel-title">Google Ads</div>
+        <div class="channel-description">
+          Capture high-intent leads searching for tree services in your area. Show up when customers need you most.
+        </div>
+        <div class="channel-stats">
+          <div class="channel-stat">
+            <div class="channel-stat-label">Avg. Cost/Lead</div>
+            <div class="channel-stat-value">$18</div>
+          </div>
+          <div class="channel-stat">
+            <div class="channel-stat-label">Est. Clicks</div>
+            <div class="channel-stat-value">500+</div>
+          </div>
+        </div>
+        <button class="channel-cta" @click="startCampaign('google')">
+          Set Up Google Campaign
+        </button>
+      </div>
+
+      <!-- Direct Mail Card -->
+      <div class="channel-card">
+        <div class="channel-icon">✉️</div>
+        <div class="channel-title">Automated Direct Mail</div>
+        <div class="channel-description">
+          Send personalized postcards to targeted neighborhoods. Automated mailing based on weather, seasons, or local events.
+        </div>
+        <div class="channel-stats">
+          <div class="channel-stat">
+            <div class="channel-stat-label">Cost per 100</div>
+            <div class="channel-stat-value">$85</div>
+          </div>
+          <div class="channel-stat">
+            <div class="channel-stat-label">Response Rate</div>
+            <div class="channel-stat-value">2-4%</div>
+          </div>
+        </div>
+        <button class="channel-cta" @click="startCampaign('directmail')">
+          Set Up Direct Mail
+        </button>
+      </div>
+    </div>
+
+    <!-- AI Agents View -->
+    <div v-if="currentView === 'ai-agents'" class="ai-agents-grid">
+      <!-- Lead Qualifier Agent -->
+      <div class="agent-card" @click="configureAgent('qualifier')">
+        <div class="channel-icon">🎯</div>
+        <div class="channel-title">Lead Qualifier</div>
+        <div class="channel-stats">
+          <div class="channel-stat">
+            <div class="channel-stat-label">Time Saved</div>
+            <div class="channel-stat-value">10h/wk</div>
+          </div>
+          <div class="channel-stat">
+            <div class="channel-stat-label">Conversion</div>
+            <div class="channel-stat-value">+35%</div>
+          </div>
+        </div>
+        <button class="channel-cta" @click.stop="configureAgent('qualifier')">
+          Configure
+        </button>
+      </div>
+
+      <!-- Phone Answering Agent -->
+      <div class="agent-card" @click="configureAgent('phone')">
+        <div class="channel-icon">☎️</div>
+        <div class="channel-title">Phone Answering</div>
+        <div class="channel-stats">
+          <div class="channel-stat">
+            <div class="channel-stat-label">Calls</div>
+            <div class="channel-stat-value">100%</div>
+          </div>
+          <div class="channel-stat">
+            <div class="channel-stat-label">Uptime</div>
+            <div class="channel-stat-value">24/7</div>
+          </div>
+        </div>
+        <button class="channel-cta" @click.stop="configureAgent('phone')">
+          Configure
+        </button>
+      </div>
+
+      <!-- Billing Follow Up Agent -->
+      <div class="agent-card" @click="configureAgent('billing')">
+        <div class="channel-icon">💳</div>
+        <div class="channel-title">Billing Follow Up</div>
+        <div class="channel-stats">
+          <div class="channel-stat">
+            <div class="channel-stat-label">Collection</div>
+            <div class="channel-stat-value">98%</div>
+          </div>
+          <div class="channel-stat">
+            <div class="channel-stat-label">Faster Pay</div>
+            <div class="channel-stat-value">-40%</div>
+          </div>
+        </div>
+        <button class="channel-cta" @click.stop="configureAgent('billing')">
+          Configure
+        </button>
+      </div>
+
+      <!-- Marketing Agent -->
+      <div class="agent-card" @click="configureAgent('marketing')">
+        <div class="channel-icon">📣</div>
+        <div class="channel-title">Marketing</div>
+        <div class="channel-stats">
+          <div class="channel-stat">
+            <div class="channel-stat-label">Open Rate</div>
+            <div class="channel-stat-value">42%</div>
+          </div>
+          <div class="channel-stat">
+            <div class="channel-stat-label">ROI</div>
+            <div class="channel-stat-value">380%</div>
+          </div>
+        </div>
+        <button class="channel-cta" @click.stop="configureAgent('marketing')">
+          Configure
+        </button>
+      </div>
+
+      <!-- Customer Service Agent -->
+      <div class="agent-card" @click="configureAgent('customer-service')">
+        <div class="channel-icon">💬</div>
+        <div class="channel-title">Customer Service</div>
+        <div class="channel-stats">
+          <div class="channel-stat">
+            <div class="channel-stat-label">Response</div>
+            <div class="channel-stat-value">&lt;1min</div>
+          </div>
+          <div class="channel-stat">
+            <div class="channel-stat-label">Rating</div>
+            <div class="channel-stat-value">4.8/5</div>
+          </div>
+        </div>
+        <button class="channel-cta" @click.stop="configureAgent('customer-service')">
+          Configure
+        </button>
+      </div>
+    </div>
+
+    <!-- Reports View -->
+    <div v-if="currentView === 'reports'" class="reports-container">
+      <!-- Overview Section -->
+      <div class="report-section">
+        <div class="report-section-header">
+          <h2 class="report-section-title">Website Traffic</h2>
+          <select v-model="selectedDateRange" class="date-range-selector">
+            <option value="7days">Last 7 days</option>
+            <option value="30days">Last 30 days</option>
+            <option value="90days">Last 90 days</option>
+            <option value="year">Last year</option>
+          </select>
+        </div>
+        <div class="report-cards">
+          <div class="report-card">
+            <div class="report-card-icon">🌐</div>
+            <div class="report-card-title">Website Traffic</div>
+            <div class="report-card-value">3847 users</div>
+          </div>
+          <div class="report-card">
+            <div class="report-card-icon">👥</div>
+            <div class="report-card-title">Leads</div>
+            <div class="report-card-value">104</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Facebook Ads Section -->
+      <div class="report-section">
+        <h2 class="report-section-title">Facebook Ads</h2>
+        <div class="report-cards-full">
+          <div class="report-card-full">
+            <div class="report-card-icon">📱</div>
+            <div class="report-card-title">Facebook Ads</div>
+            <div class="report-card-value">Active</div>
+          </div>
+          <div class="report-card-full">
+            <div class="report-card-icon">👥</div>
+            <div class="report-card-title">Leads</div>
+            <div class="report-card-value">45</div>
+          </div>
+          <div class="report-card-full">
+            <div class="report-card-icon">💰</div>
+            <div class="report-card-title">Cost Per Lead</div>
+            <div class="report-card-value">$26.67</div>
+          </div>
+          <div class="report-card-full">
+            <div class="report-card-icon">💵</div>
+            <div class="report-card-title">Amount Spent</div>
+            <div class="report-card-value">$1,200</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Agent Configuration Modal -->
+    <div v-if="showAgentModal" class="modal-overlay" @click="closeAgentModal">
+      <div class="modal" @click.stop>
+        <div class="modal-header">
+          <div class="modal-title">{{ getAgentTitle(selectedAgent) }}</div>
+          <div class="modal-subtitle">Configure your AI agent settings</div>
+        </div>
+        <div class="modal-body">
+          <div class="campaign-setup">
+            <h3>Agent Status</h3>
+            <label class="checkbox-label" style="background: #F8F9FA; border-radius: 8px;">
+              <input type="checkbox" v-model="agentConfig.enabled">
+              <span style="font-weight: 600;">Enable this AI agent</span>
+            </label>
+          </div>
+
+          <div class="campaign-setup" v-if="selectedAgent === 'qualifier'">
+            <h3>Qualification Criteria</h3>
+            <div class="targeting-options">
+              <label class="checkbox-label">
+                <input type="checkbox" v-model="agentConfig.askBudget">
+                <span>Ask about budget range</span>
+              </label>
+              <label class="checkbox-label">
+                <input type="checkbox" v-model="agentConfig.askTimeline">
+                <span>Ask about project timeline</span>
+              </label>
+              <label class="checkbox-label">
+                <input type="checkbox" v-model="agentConfig.askProperty">
+                <span>Collect property details</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="campaign-setup" v-if="selectedAgent === 'phone'">
+            <h3>Phone Settings</h3>
+            <div class="form-group">
+              <label class="form-label">Forward Number</label>
+              <input type="tel" class="form-input" v-model="agentConfig.forwardNumber" placeholder="(555) 123-4567">
+            </div>
+            <div class="targeting-options">
+              <label class="checkbox-label">
+                <input type="checkbox" v-model="agentConfig.bookAppointments">
+                <span>Allow appointment booking</span>
+              </label>
+              <label class="checkbox-label">
+                <input type="checkbox" v-model="agentConfig.emergencyDetection">
+                <span>Detect emergency calls and forward immediately</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="campaign-setup" v-if="selectedAgent === 'billing'">
+            <h3>Billing Reminders</h3>
+            <div class="form-group">
+              <label class="form-label">First Reminder (days after due)</label>
+              <input type="number" class="form-input" v-model="agentConfig.firstReminder" placeholder="3">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Second Reminder (days after due)</label>
+              <input type="number" class="form-input" v-model="agentConfig.secondReminder" placeholder="7">
+            </div>
+          </div>
+
+          <div class="campaign-setup" v-if="selectedAgent === 'marketing'">
+            <h3>Campaign Types</h3>
+            <div class="targeting-options">
+              <label class="checkbox-label">
+                <input type="checkbox" v-model="agentConfig.seasonal">
+                <span>Seasonal promotions (Spring/Fall cleanup)</span>
+              </label>
+              <label class="checkbox-label">
+                <input type="checkbox" v-model="agentConfig.reengagement">
+                <span>Re-engage past customers (12+ months)</span>
+              </label>
+              <label class="checkbox-label">
+                <input type="checkbox" v-model="agentConfig.referral">
+                <span>Referral program emails</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="campaign-setup" v-if="selectedAgent === 'customer-service'">
+            <h3>Service Channels</h3>
+            <div class="targeting-options">
+              <label class="checkbox-label">
+                <input type="checkbox" v-model="agentConfig.sms">
+                <span>SMS/Text messaging</span>
+              </label>
+              <label class="checkbox-label">
+                <input type="checkbox" v-model="agentConfig.email">
+                <span>Email support</span>
+              </label>
+              <label class="checkbox-label">
+                <input type="checkbox" v-model="agentConfig.webchat">
+                <span>Website chat widget</span>
+              </label>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" @click="closeAgentModal">Cancel</button>
+          <button class="btn btn-primary" @click="saveAgentConfig">
+            Save Configuration
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Campaign Setup Modal -->
+    <div v-if="showCampaignModal" class="modal-overlay" @click="closeCampaignModal">
+      <div class="modal" @click.stop>
+        <div class="modal-header">
+          <div class="modal-title">{{ campaignType === 'facebook' ? 'Facebook Ads' : campaignType === 'google' ? 'Google Ads' : 'Direct Mail' }} Campaign</div>
+          <div class="modal-subtitle">Configure your campaign settings</div>
+        </div>
+        <div class="modal-body">
+          <div class="campaign-setup">
+            <h3>Monthly Budget</h3>
+            <div class="budget-display">${{ campaignBudget }}</div>
+            <input
+              type="range"
+              class="budget-slider"
+              min="100"
+              max="5000"
+              step="50"
+              v-model="campaignBudget"
+            >
+            <div style="display: flex; justify-content: space-between; font-size: 12px; color: #6C757D;">
+              <span>$100</span>
+              <span>$5,000</span>
+            </div>
+          </div>
+
+          <div class="campaign-setup" v-if="campaignType !== 'directmail'">
+            <h3>Target Audience</h3>
+            <div class="targeting-options">
+              <label class="checkbox-label">
+                <input type="checkbox" v-model="targeting.homeowners">
+                <span>Homeowners (Age 35-65)</span>
+              </label>
+              <label class="checkbox-label">
+                <input type="checkbox" v-model="targeting.businesses">
+                <span>Property Managers & Businesses</span>
+              </label>
+              <label class="checkbox-label">
+                <input type="checkbox" v-model="targeting.urgent">
+                <span>Emergency Services (Storm Damage)</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="campaign-setup" v-if="campaignType === 'directmail'">
+            <h3>Mailing Options</h3>
+            <div class="targeting-options">
+              <label class="checkbox-label">
+                <input type="checkbox" v-model="targeting.seasonal">
+                <span>Seasonal Campaigns (Spring/Fall)</span>
+              </label>
+              <label class="checkbox-label">
+                <input type="checkbox" v-model="targeting.stormTrigger">
+                <span>Storm-Triggered Mailings</span>
+              </label>
+              <label class="checkbox-label">
+                <input type="checkbox" v-model="targeting.radius">
+                <span>Target 5-Mile Radius</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="campaign-setup">
+            <h3>Campaign Duration</h3>
+            <select class="form-select" v-model="campaignDuration">
+              <option value="1">1 Month</option>
+              <option value="3">3 Months</option>
+              <option value="6">6 Months</option>
+              <option value="12">12 Months</option>
+            </select>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" @click="closeCampaignModal">Cancel</button>
+          <button class="btn btn-primary" @click="launchCampaign">
+            Launch Campaign
+          </button>
+        </div>
+      </div>
+    </div>
+
     <!-- Confirmation Dialog -->
     <div v-if="showConfirmation" class="modal-overlay" @click="closeConfirmation">
       <div class="confirmation-dialog" @click.stop>
@@ -1666,7 +2342,8 @@
     createApp({
       data() {
         return {
-          currentView: 'list', // 'list', 'detail', 'add', 'reviews', 'quotes', 'quote-detail', 'add-quote'
+          currentView: 'list', // 'list', 'detail', 'add', 'reviews', 'quotes', 'quote-detail', 'add-quote', 'get-leads', 'ai-agents'
+          selectedDateRange: '30days',
           searchQuery: '',
           filterStatus: 'all',
           selectedLeadId: null,
@@ -1674,8 +2351,39 @@
           menuOpen: false,
           showReviewRequestModal: false,
           showConfirmation: false,
+          showCampaignModal: false,
+          showAgentModal: false,
           selectedLeadsForReview: [],
           confirmationMessage: '',
+          campaignType: '',
+          campaignBudget: 500,
+          campaignDuration: '3',
+          targeting: {
+            homeowners: true,
+            businesses: false,
+            urgent: false,
+            seasonal: false,
+            stormTrigger: false,
+            radius: true
+          },
+          selectedAgent: '',
+          agentConfig: {
+            enabled: true,
+            askBudget: true,
+            askTimeline: true,
+            askProperty: false,
+            forwardNumber: '',
+            bookAppointments: true,
+            emergencyDetection: true,
+            firstReminder: 3,
+            secondReminder: 7,
+            seasonal: true,
+            reengagement: true,
+            referral: false,
+            sms: true,
+            email: true,
+            webchat: false
+          },
           statuses: ['New', 'In Progress', 'Quoted', 'Won', 'Lost'],
           editMode: {
             contact: false,
@@ -2304,6 +3012,113 @@
             this.confirmationMessage = `Payment request sent to ${this.selectedQuote.customerName} for $${this.formatMoney(this.selectedQuote.total)}`;
             this.showConfirmation = true;
           }
+        },
+        // Campaign methods
+        startCampaign(type) {
+          this.campaignType = type;
+          this.showCampaignModal = true;
+        },
+        closeCampaignModal() {
+          this.showCampaignModal = false;
+          this.campaignType = '';
+          this.campaignBudget = 500;
+          this.campaignDuration = '3';
+          this.targeting = {
+            homeowners: true,
+            businesses: false,
+            urgent: false,
+            seasonal: false,
+            stormTrigger: false,
+            radius: true
+          };
+        },
+        launchCampaign() {
+          const channelName = this.campaignType === 'facebook' ? 'Facebook Ads' :
+                             this.campaignType === 'google' ? 'Google Ads' :
+                             'Direct Mail';
+
+          this.confirmationMessage = `${channelName} campaign launched! Budget: $${this.campaignBudget}/month for ${this.campaignDuration} month(s). You'll start seeing new leads within 24-48 hours.`;
+
+          this.showCampaignModal = false;
+          this.showConfirmation = true;
+
+          // Reset campaign settings
+          this.campaignType = '';
+          this.campaignBudget = 500;
+          this.campaignDuration = '3';
+          this.targeting = {
+            homeowners: true,
+            businesses: false,
+            urgent: false,
+            seasonal: false,
+            stormTrigger: false,
+            radius: true
+          };
+        },
+        // Agent methods
+        configureAgent(agentType) {
+          this.selectedAgent = agentType;
+          this.showAgentModal = true;
+        },
+        closeAgentModal() {
+          this.showAgentModal = false;
+          this.selectedAgent = '';
+          this.agentConfig = {
+            enabled: true,
+            askBudget: true,
+            askTimeline: true,
+            askProperty: false,
+            forwardNumber: '',
+            bookAppointments: true,
+            emergencyDetection: true,
+            firstReminder: 3,
+            secondReminder: 7,
+            seasonal: true,
+            reengagement: true,
+            referral: false,
+            sms: true,
+            email: true,
+            webchat: false
+          };
+        },
+        getAgentTitle(agentType) {
+          const titles = {
+            'qualifier': 'Lead Qualifier Agent',
+            'phone': 'Phone Answering Agent',
+            'billing': 'Billing Follow Up Agent',
+            'marketing': 'Marketing Agent',
+            'customer-service': 'Customer Service Agent'
+          };
+          return titles[agentType] || 'AI Agent';
+        },
+        saveAgentConfig() {
+          const agentName = this.getAgentTitle(this.selectedAgent);
+          const status = this.agentConfig.enabled ? 'activated' : 'deactivated';
+
+          this.confirmationMessage = `${agentName} has been ${status} and configured successfully. The agent will start working immediately.`;
+
+          this.showAgentModal = false;
+          this.showConfirmation = true;
+
+          // Reset agent settings
+          this.selectedAgent = '';
+          this.agentConfig = {
+            enabled: true,
+            askBudget: true,
+            askTimeline: true,
+            askProperty: false,
+            forwardNumber: '',
+            bookAppointments: true,
+            emergencyDetection: true,
+            firstReminder: 3,
+            secondReminder: 7,
+            seasonal: true,
+            reengagement: true,
+            referral: false,
+            sms: true,
+            email: true,
+            webchat: false
+          };
         }
       }
     }).mount('#app');
